@@ -3,11 +3,11 @@ import React from 'react'
 const Login = () => {
   return (
     <div className='flex items-center justify-center h-screen w-screen'>
-        <div className='border-2 border-red-500 min-h-[600px] min-w-[300px]'>
-            <form className='flex flex-col justify-center gap-5 bg-amber-200'>
-                <input className='px-6 py-2 border-2 rounded-4xl' type="email" placeholder='abc@gmail.com'/>
-                <input className='px-6 py-2 border-2 rounded-4xl' type="password" placeholder='Password' />
-                <button>Login</button>
+        <div className='border-2 border-emerald-600 rounded-2xl w-[400px] p-[60px]'>
+            <form className='flex flex-col justify-center items-center gap-5'>
+                <input className='px-6 py-2 border-2 border-emerald-600 outline-none rounded-4xl w-full' type="email" placeholder='abc@gmail.com'/>
+                <input className='px-6 py-2 border-2 border-emerald-600 outline-none rounded-4xl w-full' type="password" placeholder='Password' />
+                <button className='bg-emerald-500 border-emerald-600 text-black px-6 py-2 mt-4 border-2 rounded-4xl w-full cursor-pointer'>Login</button>
             </form>
         </div>  
     </div>
