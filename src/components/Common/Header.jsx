@@ -2,7 +2,7 @@ import React from 'react'
 
 const Header = () => (
     <>
-        <div className='flex justify-between items-center px-16 py-7'>
+        <div className='flex justify-between items-center pb-10 '>
             <div className=''>
                 <p className='font-medium text-l'>Hello </p>
                 <p className='font-medium text-3xl'>Shiv👋</p>
@@ -13,5 +13,5 @@ const Header = () => (
         </div>
     </>
 )
-
+ 
 export default Header
