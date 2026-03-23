@@ -1,0 +1,156 @@
+{
+    "employees": [
+        {
+            "id": 1,
+            "email": "employee1@example.com",
+            "password": "123",
+            "tasks": [
+                {
+                    "active": true,
+                    "newTask": true,
+                    "completed": false,
+                    "failed": false,
+                    "taskTitle": "Design Landing Page",
+                    "taskDescription": "Create UI for homepage using React",
+                    "taskDate": "2026-03-20",
+                    "category": "Design"
+                },
+                {
+                    "active": false,
+                    "newTask": false,
+                    "completed": true,
+                    "failed": false,
+                    "taskTitle": "Fix Navbar Bug",
+                    "taskDescription": "Resolve responsive issue in navbar",
+                    "taskDate": "2026-03-18",
+                    "category": "Development"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "email": "employee2@example.com",
+            "password": "123",
+            "tasks": [
+                {
+                    "active": true,
+                    "newTask": true,
+                    "completed": false,
+                    "failed": false,
+                    "taskTitle": "Database Schema",
+                    "taskDescription": "Design MongoDB schema for project",
+                    "taskDate": "2026-03-21",
+                    "category": "Backend"
+                },
+                {
+                    "active": false,
+                    "newTask": false,
+                    "completed": false,
+                    "failed": true,
+                    "taskTitle": "API Integration",
+                    "taskDescription": "Integrate payment gateway API",
+                    "taskDate": "2026-03-19",
+                    "category": "Backend"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "email": "employee3@example.com",
+            "password": "123",
+            "tasks": [
+                {
+                    "active": true,
+                    "newTask": true,
+                    "completed": false,
+                    "failed": false,
+                    "taskTitle": "Write Test Cases",
+                    "taskDescription": "Create unit tests using Jest",
+                    "taskDate": "2026-03-22",
+                    "category": "Testing"
+                },
+                {
+                    "active": false,
+                    "newTask": false,
+                    "completed": true,
+                    "failed": false,
+                    "taskTitle": "Bug Verification",
+                    "taskDescription": "Verify resolved bugs in staging",
+                    "taskDate": "2026-03-17",
+                    "category": "QA"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "email": "employee4@example.com",
+            "password": "123",
+            "tasks": [
+                {
+                    "active": true,
+                    "newTask": true,
+                    "completed": false,
+                    "failed": false,
+                    "taskTitle": "SEO Optimization",
+                    "taskDescription": "Improve website SEO ranking",
+                    "taskDate": "2026-03-23",
+                    "category": "Marketing"
+                },
+                {
+                    "active": false,
+                    "newTask": false,
+                    "completed": false,
+                    "failed": true,
+                    "taskTitle": "Ad Campaign",
+                    "taskDescription": "Run Google Ads campaign",
+                    "taskDate": "2026-03-16",
+                    "category": "Marketing"
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "email": "employee5@example.com",
+            "password": "123",
+            "tasks": [
+                {
+                    "active": true,
+                    "newTask": true,
+                    "completed": false,
+                    "failed": false,
+                    "taskTitle": "Client Meeting",
+                    "taskDescription": "Discuss project requirements",
+                    "taskDate": "2026-03-24",
+                    "category": "Management"
+                },
+                {
+                    "active": false,
+                    "newTask": false,
+                    "completed": true,
+                    "failed": false,
+                    "taskTitle": "Project Planning",
+                    "taskDescription": "Prepare roadmap for new project",
+                    "taskDate": "2026-03-15",
+                    "category": "Management"
+                }
+            ]
+        }
+    ],
+    "admin": [
+        {
+            "id": 1,
+            "email": "admin1@example.com",
+            "password": "123"
+        },
+        {
+            "id": 2,
+            "email": "admin2@example.com",
+            "password": "123"
+        },
+        {
+            "id": 3,
+            "email": "admin3@example.com",
+            "password": "123"
+        }
+    ]
+}
