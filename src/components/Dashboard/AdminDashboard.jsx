@@ -5,11 +5,6 @@ import AllTask from '../Common/AllTask';
 
 const AdminDashboard = () => {
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log("submit");
-    }
-
     return (
         <>
             <div className="p-10">

@@ -1,9 +1,15 @@
 import React from 'react'
 
 const CreateTask = () => {
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log("submit");
+    }
+
     return (
         <div>
-            <form className='p-5 bg-[#1c1c1c]'>
+            <form className='p-5 bg-[#1c1c1c]' onSubmit={(e) => handleSubmit(e)}>
                 <div className="flex gap-5 h-[350px]">
                     <div className='w-[50%]'>
                         <div className='mb-5'>
@@ -26,7 +32,7 @@ const CreateTask = () => {
                     <div className='w-[50%]'>
                         <h3>Description</h3>
                         <textarea className='bg-transparent h-63 px-4 py-2 rounded mt-2 w-full outline-none border-1 border-white' name="" id=""></textarea>
-                        <button className='w-full bg-black rounded py-3 mt-3' type='submit' onClick={(e) => handleSubmit(e)}>Create Task</button>
+                        <button className='w-full bg-black rounded py-3 mt-3' type='submit'>Create Task</button>
                     </div>
                 </div>
             </form>
