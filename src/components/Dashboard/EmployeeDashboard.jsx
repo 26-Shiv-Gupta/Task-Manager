@@ -3,13 +3,13 @@ import Header from '../Common/Header'
 import TaskListNumber from '../Common/TaskListNumber'
 import TaskList from '../TaskList/TaskList'
 
-const EmployeeDashboard = () => {
+const EmployeeDashboard = ({loggedInUserData}) => {
     return (
         <>
             <div className='h-screen p-10'>
-                <Header />
-                <TaskListNumber />
-                <TaskList />
+                <Header loggedInUserData={loggedInUserData}/>
+                <TaskListNumber loggedInUserData={loggedInUserData}/>
+                <TaskList loggedInUserData={loggedInUserData}/>
             </div>
         </>
     )
