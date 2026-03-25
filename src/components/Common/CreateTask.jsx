@@ -1,6 +1,6 @@
 import React from 'react'
 
-const CreateTask = () => {
+const CreateTask = ({loggedInUserData}) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();

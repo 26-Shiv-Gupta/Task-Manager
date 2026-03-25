@@ -14,9 +14,13 @@ function App() {
   const authData = useContext(AuthContext);
 
   const handleLogin = (email, password) => {
-    if (authData && authData.admins.find((e) => email === e.email && password === e.password)) {
-      setUser('admin')
-    } else if (authData) {
+    if (authData) {
+      const admin = authData.admins.find((e) => email === e.email && password === e.password);
+      if (admin) {
+        setUser('admin')
+        setLoggedInUserData(admin);
+      }
+
       const employee = authData.employees.find((e) => email === e.email && password === e.password);
       if (employee) {
         setUser('employee')
@@ -29,7 +33,7 @@ function App() {
 
   return (
     <>
-      {!user ? <Login handleLogin={handleLogin} /> : user === 'admin' ? <AdminDashboard loggedInUserData={loggedInUserData}/> : <EmployeeDashboard loggedInUserData={loggedInUserData}/>}
+      {!user ? <Login handleLogin={handleLogin} /> : user === 'admin' ? <AdminDashboard loggedInUserData={loggedInUserData} /> : <EmployeeDashboard loggedInUserData={loggedInUserData} />}
     </>
   )
 }

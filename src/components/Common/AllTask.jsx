@@ -1,6 +1,6 @@
 import React from 'react'
 
-const AllTask = () => {
+const AllTask = ({loggedInUserData}) => {
     return (
         <div className='flex flex-col p-2 bg-[#1c1c1c] mt-5 gap-2 h-[200px] overflow-y-auto scroolbar-hidden'>
             <div className="flex bg-red-400 px-3 py-1 justify-between">

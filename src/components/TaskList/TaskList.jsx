@@ -1,6 +1,6 @@
 import React from 'react'
 
-const TaskList = () => {
+const TaskList = ({loggedInUserData}) => {
   return (
     <>
         <div className="flex h-[60%] my-10 py-10 gap-6 overflow-x-auto scroolbar-hidden">
