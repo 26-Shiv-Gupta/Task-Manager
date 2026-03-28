@@ -16,7 +16,7 @@ const Login = ({handleLogin}) => {
 
   return (
     <div className='flex items-center justify-center h-screen w-screen'>
-      <div className='border-2 border-emerald-600 rounded-2xl w-[400px] p-[60px]'>
+      <div className='border-2 border-emerald-600 rounded-2xl w-100 p-15'>
         <form onSubmit={(e) => submitHandler(e)} className='flex flex-col justify-center items-center gap-5'>
           <input 
           required value={email} 
