@@ -9,7 +9,7 @@ const EmployeeDashboard = ({ loggedInUserData }) => {
       <div className='h-screen p-10'>
         <Header firstName={loggedInUserData.firstName} />
         <TaskListNumber taskCount={loggedInUserData.taskCount} />
-        <TaskList tasks={loggedInUserData.tasks} />
+        <TaskList loggedInUserData={loggedInUserData} />
       </div>
     </>
   )
