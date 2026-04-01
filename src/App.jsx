@@ -14,14 +14,14 @@ function App() {
   const authData = useContext(AuthContext);
 
   const handleLogin = (email, password) => {
-    if (authData) {
-      const admin = authData.admins.find((e) => email === e.email && password === e.password);
+    if (authData) { 
+      const admin = authData.userData.admins.find((e) => email === e.email && password === e.password);
       if (admin) {
         setUser('admin')
         setLoggedInUserData(admin);
       }
 
-      const employee = authData.employees.find((e) => email === e.email && password === e.password);
+      const employee = authData.userData.employees.find((e) => email === e.email && password === e.password);
       if (employee) {
         setUser('employee')
         setLoggedInUserData(employee);

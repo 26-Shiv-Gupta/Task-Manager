@@ -17,7 +17,6 @@ const NewTask = ({ task, handleTaskAccepted, idx }) => {
             <div>
                 <button className='w-full py-1 rounded-xl bg-blue-800 m-auto mt-2 cursor-pointer' onClick={() => handleTaskAccepted(idx)}>Accepted</button>
             </div>
-
         </div>
     )
 }

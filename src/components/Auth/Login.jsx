@@ -8,6 +8,7 @@ const Login = ({handleLogin}) => {
   // Two way binding
   const submitHandler = (e) => {
     e.preventDefault();
+    
     handleLogin(email, pass);
     
     setEmail('');
