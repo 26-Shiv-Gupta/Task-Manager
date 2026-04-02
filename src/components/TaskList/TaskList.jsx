@@ -46,6 +46,46 @@ const TaskList = ({ loggedInUserData }) => {
         localStorage.setItem("employees", JSON.stringify(updatedEmployees));
     }
 
+    const handleCompleted = (idx) => {
+        const updateEmployees = userData.employees.map(emp => {
+            if (emp.firstName === loggedInUserData.firstName) {
+                return {
+                    ...emp,
+                    taskCount: {
+                        ...emp.taskCount,
+                        active: emp.taskCount.active - 1,
+                        completed: emp.taskCount.completed + 1,
+                    },
+                    tasks: emp.tasks.map((t, i) => {
+                        if (i === idx) {
+                            return {
+                                ...t,
+                                active: false,
+                                completed: true
+                            };
+                        }
+                        return t;
+                    })
+                }
+            }
+            return emp;
+        })
+
+        console.log("hi", updateEmployees)
+        setUserData({
+            ...userData, 
+            employees: updateEmployees
+        })
+
+        localStorage.setItem('employees', JSON.stringify(updateEmployees))
+
+    }
+
+    const handleFailed = (idx) => {
+        console.log("Failed");
+
+    }
+
     const currentUser = userData?.employees?.find(
         emp => emp.firstName === loggedInUserData.firstName
     );
@@ -68,11 +108,24 @@ const TaskList = ({ loggedInUserData }) => {
                 }
 
                 if (ele.active) {
-                    return <AcceptTask task={ele} key={idx} />
+                    return (
+                        <AcceptTask
+                            task={ele}
+                            handleCompleted={handleCompleted}
+                            handleFailed={handleFailed}
+                            idx={idx}
+                            key={idx}
+                        />
+                    )
                 }
 
                 if (ele.completed) {
-                    return <CompleteTask task={ele} key={idx} />
+                    return (
+                        <CompleteTask
+                            task={ele}
+                            key={idx}
+                        />
+                    )
                 }
 
                 if (ele.failed) {
