@@ -1,4 +1,4 @@
-import { use, useContext, useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import './App.css'
 import Login from './components/Auth/Login'
 import EmployeeDashboard from './components/Dashboard/EmployeeDashboard'
@@ -11,29 +11,70 @@ function App() {
   const [user, setUser] = useState(null);
   const [loggedInUserData, setLoggedInUserData] = useState(null);
 
-  const authData = useContext(AuthContext);
+  const {userData} = useContext(AuthContext);
 
   const handleLogin = (email, password) => {
-    if (authData) { 
-      const admin = authData.userData.admins.find((e) => email === e.email && password === e.password);
+    if (userData) {
+
+      // Admin login
+      const admin = userData.admins.find((e) => email === e.email && password === e.password);
       if (admin) {
         setUser('admin')
         setLoggedInUserData(admin);
+        localStorage.setItem("loggedInUser", JSON.stringify({
+          role: 'admin',
+          email: admin.email
+        }))
       }
 
-      const employee = authData.userData.employees.find((e) => email === e.email && password === e.password);
+      // Employee login
+      const employee = userData.employees.find((e) => email === e.email && password === e.password);
       if (employee) {
         setUser('employee')
         setLoggedInUserData(employee);
+        localStorage.setItem("loggedInUser", JSON.stringify({
+          role: 'employee',
+          email: employee.email
+        }))
       }
-    } else {
-      alert('Invalid Credentials');
+
+      // Invalid Crendentials
+      if (!admin && !employee) {
+        alert("Invalid credentials");
+      }
     }
   }
 
+  useEffect(() => {
+    const storedUser = JSON.parse(localStorage.getItem("loggedInUser"));
+
+    if (storedUser && userData) {
+      const { role, email } = storedUser;
+
+      if (role === 'admin') {
+        const admin = userData.admins.find(a => a.email === email);
+        if (admin) {
+          setUser('admin');
+          setLoggedInUserData(admin);
+        }
+        return;
+      }
+      
+      if (role === 'employee') {
+        const employee = userData.employees.find(e => e.email === email);
+        if (employee) {
+          setUser('employee');
+          setLoggedInUserData(employee);
+        }
+        return;
+      }
+    }
+  }, [userData]);
+
+
   return (
     <>
-      {!user ? <Login handleLogin={handleLogin} /> : user === 'admin' ? <AdminDashboard loggedInUserData={loggedInUserData} /> : <EmployeeDashboard loggedInUserData={loggedInUserData} />}
+      {!user ? <Login handleLogin={handleLogin} /> : user === 'admin' ? <AdminDashboard loggedInUserData={loggedInUserData}/> : <EmployeeDashboard loggedInUserData={loggedInUserData} />}
     </>
   )
 }
