@@ -6,7 +6,7 @@ const Header = ({ firstName, handleLogout }) => {
       <div className='flex justify-between items-center pb-10 '>
         <div className=''>
           <p className='font-medium text-l'>Hello </p>
-          <p className='font-medium text-3xl'>{firstName} 👋</p>
+          <p className='font-medium text-3xl'>{firstName}👋</p>
         </div>
         <div>
           <button
