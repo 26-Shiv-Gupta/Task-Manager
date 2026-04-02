@@ -71,10 +71,18 @@ function App() {
     }
   }, [userData]);
 
+  const handleLogout = () => {
+    localStorage.removeItem("loggedInUser")
+    setUser(null)
+    setLoggedInUserData(null)
+  }
 
   return (
     <>
-      {!user ? <Login handleLogin={handleLogin} /> : user === 'admin' ? <AdminDashboard loggedInUserData={loggedInUserData}/> : <EmployeeDashboard loggedInUserData={loggedInUserData} />}
+      {!user ? <Login handleLogin={handleLogin} /> 
+      : user === 'admin' 
+      ? <AdminDashboard loggedInUserData={loggedInUserData}  handleLogout={handleLogout}/> 
+      : <EmployeeDashboard loggedInUserData={loggedInUserData} handleLogout={handleLogout}/>}
     </>
   )
 }

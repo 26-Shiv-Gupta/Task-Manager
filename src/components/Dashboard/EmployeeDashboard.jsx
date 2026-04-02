@@ -4,7 +4,7 @@ import TaskListNumber from '../Common/TaskListNumber'
 import TaskList from '../TaskList/TaskList'
 import { AuthContext } from '../../context/AuthProvider'
 
-const EmployeeDashboard = ({ loggedInUserData }) => {
+const EmployeeDashboard = ({ loggedInUserData, handleLogout }) => {
 
   const { userData } = useContext(AuthContext);
 
@@ -16,7 +16,7 @@ const EmployeeDashboard = ({ loggedInUserData }) => {
 
   return (
     <div className='h-screen p-10'>
-      <Header firstName={currentUser.firstName} />
+      <Header firstName={currentUser.firstName} handleLogout={handleLogout}/>
       <TaskListNumber taskCount={currentUser.taskCount} />
       <TaskList loggedInUserData={currentUser} />
     </div>

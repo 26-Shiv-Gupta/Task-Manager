@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Header = ({ firstName }) => {
+const Header = ({ firstName, handleLogout }) => {
   return (
     <>
       <div className='flex justify-between items-center pb-10 '>
@@ -11,6 +11,7 @@ const Header = ({ firstName }) => {
         <div>
           <button
             className='px-7 py-1 bg-red-600 hover:bg-red-700 rounded-[5px] font-medium cursor-pointer'
+            onClick={handleLogout}
           >
             Logout
           </button>
