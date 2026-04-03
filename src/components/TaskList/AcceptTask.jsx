@@ -14,7 +14,7 @@ const AcceptTask = ({task, handleCompleted, handleFailed, idx}) => {
             </div>
             <div>
                 <button className='w-full py-1 rounded-xl bg-green-800 m-auto mt-2 cursor-pointer' onClick={() => handleCompleted(idx)}>Completed</button>
-                <button className='w-full py-1 rounded-xl bg-red-800 m-auto mt-2 cursor-pointer' onClick={() => handleFailed()}>Failed</button>
+                <button className='w-full py-1 rounded-xl bg-red-800 m-auto mt-2 cursor-pointer' onClick={() => handleFailed(idx)}>Failed</button>
             </div>
         </div>
     )

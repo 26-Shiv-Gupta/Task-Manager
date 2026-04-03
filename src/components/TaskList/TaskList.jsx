@@ -47,14 +47,14 @@ const TaskList = ({ loggedInUserData }) => {
     }
 
     const handleCompleted = (idx) => {
-        const updateEmployees = userData.employees.map(emp => {
+        const updatedEmployees = userData.employees.map(emp => {
             if (emp.firstName === loggedInUserData.firstName) {
                 return {
                     ...emp,
                     taskCount: {
                         ...emp.taskCount,
                         active: emp.taskCount.active - 1,
-                        completed: emp.taskCount.completed + 1,
+                        completed: emp.taskCount.completed + 1
                     },
                     tasks: emp.tasks.map((t, i) => {
                         if (i === idx) {
@@ -71,18 +71,46 @@ const TaskList = ({ loggedInUserData }) => {
             return emp;
         })
 
-        console.log("hi", updateEmployees)
         setUserData({
             ...userData, 
-            employees: updateEmployees
+            employees: updatedEmployees
         })
 
-        localStorage.setItem('employees', JSON.stringify(updateEmployees))
+        localStorage.setItem('employees', JSON.stringify(updatedEmployees))
 
     }
 
     const handleFailed = (idx) => {
-        console.log("Failed");
+        const updatedEmployees = userData.employees.map(emp => {
+            if(emp.firstName === loggedInUserData.firstName) {
+                return {
+                    ...emp, 
+                    taskCount: {
+                        ...emp.taskCount,
+                        active: emp.taskCount.active -1,
+                        failed: emp.taskCount.failed +1
+                    },
+                    tasks: emp.tasks.map((t, i) => {
+                        if (i === idx) {
+                            return {
+                                ...t,
+                                active: false,
+                                failed: true
+                            }
+                        }
+                        return t;
+                    })
+                }
+            }
+            return emp;
+        })
+        
+        setUserData({
+            ...userData,
+            employees: updatedEmployees
+        })
+
+        localStorage.setItem("employees", JSON.stringify(updatedEmployees));
 
     }
 
