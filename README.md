@@ -110,7 +110,11 @@ The app uses hardcoded credentials stored in the context for demo purposes.
 | Role | Email | Password |
 |---|---|---|
 | Admin | admin@example.com | 123 |
-| Employee | employee@example.com | 123 |
+| Employee | employee1@example.com | 123 |
+| Employee | employee2@example.com | 123 |
+| Employee | employee3@example.com | 123 |
+| Employee | employee4@example.com | 123 |
+| Employee | employee5@example.com | 123 |
 
 > You can update the default users and employees data inside `src/context/AuthProvider.jsx`.
 
