@@ -1,12 +1,12 @@
 import React from 'react'
 
-const AllTask = ({ loggedInUserData, allTasks }) => {
+const AllTask = ({ loggedInUserData, employeesData }) => {
 
     return (
         <div className='flex flex-col p-2 bg-[#1c1c1c] mt-5 gap-2 h-50 overflow-y-auto scroolbar-hidden'>
 
             {
-                allTasks.map((a, i) => {
+                employeesData.map((a, i) => {
                     return (
                         a.tasks.map((t, j) => {
                             return (

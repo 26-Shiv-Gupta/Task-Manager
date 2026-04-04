@@ -1,6 +1,6 @@
 import React, { use, useState } from 'react'
 
-const CreateTask = ({ loggedInUserData, allTasks, setNewTask }) => {
+const CreateTask = ({ loggedInUserData, employeesData, setEmployeesData }) => {
 
     const [taskTitle, setTaskTitle] = useState('');
     const [taskDate, setTaskDate] = useState('');
@@ -11,19 +11,37 @@ const CreateTask = ({ loggedInUserData, allTasks, setNewTask }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const newTask = {
-            "taskAssignTo": taskAssignTo,
-            "taskTitle": taskTitle,
-            "taskDescription": taskDescription,
-            "taskDate": taskDate,
-            "taskCategory": taskCategory
-        }
+        const updatedData = employeesData.map((emp, i) => {
+            if (emp.firstName == taskAssignTo) {
+                return {
+                    ...emp,
+                    taskCount: {
+                        ...emp.taskCount,
+                        newTask: emp.taskCount.newTask + 1
+                    },
+                    tasks: [
+                        ...emp.tasks,
+                        {
+                            "active": false,
+                            "newTask": true,
+                            "completed": false,
+                            "failed": false,
+                            "taskTitle": taskTitle,
+                            "taskDescription": taskDescription,
+                            "taskDate": taskDate,
+                            "category": taskCategory
+                        }
+                    ]
+                }
+            }
+            return emp;
+        })
 
-        setNewTask(newTask);
+        setEmployeesData(updatedData)
+        localStorage.setItem("employees", JSON.stringify(updatedData))
     }
 
-    console.log(allTasks);
-    
+
     return (
         <div>
             <form className='p-5 bg-[#1c1c1c]' onSubmit={(e) => handleSubmit(e)}>
