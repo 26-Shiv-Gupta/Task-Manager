@@ -2,13 +2,13 @@ import React from 'react'
 
 const CompleteTask = ({task}) => {
     return (
-        <div className="h-full min-w-[24%] w-[24%] bg-green-400 rounded-2xl p-6">
-            <div className='flex justify-between'>
-                <h3 className='bg-green-600 text-sm py-0.5 px-2 rounded font-bold'>{task.category}</h3>
-                <h4 className='font-bold text-sm'>{task.taskDate}</h4>
+        <div className="min-w-70 min-h-70 w-[24%] bg-emerald-500/15 border border-emerald-500/30 backdrop-blur-sm rounded-2xl p-6">
+            <div className='flex justify-between items-center'>
+                <h3 className='bg-emerald-500/30 text-emerald-300 text-sm py-0.5 px-2 rounded font-bold'>{task.category}</h3>
+                <h4 className='font-bold text-sm text-slate-400'>{task.taskDate}</h4>
             </div>
-            <h2 className='font-bold mt-5 text-xl'>{task.taskTitle}</h2>
-            <p className='text-sm mt-2'>{task.taskDescription}</p>
+            <h2 className='font-bold mt-5 text-xl text-white'>{task.taskTitle}</h2>
+            <p className='text-sm mt-2 text-slate-400'>{task.taskDescription}</p>
         </div>
     )
 }

@@ -10,10 +10,8 @@ const TaskList = ({ loggedInUserData }) => {
     const { userData, setUserData } = useContext(AuthContext);
 
     const handleTaskAccepted = (idx) => {
-
         const updatedEmployees = userData.employees.map(emp => {
             if (emp.firstName === loggedInUserData.firstName) {
-
                 return {
                     ...emp,
                     taskCount: {
@@ -23,11 +21,7 @@ const TaskList = ({ loggedInUserData }) => {
                     },
                     tasks: emp.tasks.map((t, i) => {
                         if (i === idx) {
-                            return {
-                                ...t,
-                                active: true,
-                                newTask: false
-                            };
+                            return { ...t, active: true, newTask: false };
                         }
                         return t;
                     })
@@ -36,13 +30,7 @@ const TaskList = ({ loggedInUserData }) => {
             return emp;
         });
 
-        // Update Context
-        setUserData({
-            ...userData,
-            employees: updatedEmployees
-        });
-
-        // Update localStorage
+        setUserData({ ...userData, employees: updatedEmployees });
         localStorage.setItem("employees", JSON.stringify(updatedEmployees));
     }
 
@@ -58,11 +46,7 @@ const TaskList = ({ loggedInUserData }) => {
                     },
                     tasks: emp.tasks.map((t, i) => {
                         if (i === idx) {
-                            return {
-                                ...t,
-                                active: false,
-                                completed: true
-                            };
+                            return { ...t, active: false, completed: true };
                         }
                         return t;
                     })
@@ -71,32 +55,23 @@ const TaskList = ({ loggedInUserData }) => {
             return emp;
         })
 
-        setUserData({
-            ...userData, 
-            employees: updatedEmployees
-        })
-
+        setUserData({ ...userData, employees: updatedEmployees })
         localStorage.setItem('employees', JSON.stringify(updatedEmployees))
-
     }
 
     const handleFailed = (idx) => {
         const updatedEmployees = userData.employees.map(emp => {
             if(emp.firstName === loggedInUserData.firstName) {
                 return {
-                    ...emp, 
+                    ...emp,
                     taskCount: {
                         ...emp.taskCount,
-                        active: emp.taskCount.active -1,
-                        failed: emp.taskCount.failed +1
+                        active: emp.taskCount.active - 1,
+                        failed: emp.taskCount.failed + 1
                     },
                     tasks: emp.tasks.map((t, i) => {
                         if (i === idx) {
-                            return {
-                                ...t,
-                                active: false,
-                                failed: true
-                            }
+                            return { ...t, active: false, failed: true }
                         }
                         return t;
                     })
@@ -104,14 +79,9 @@ const TaskList = ({ loggedInUserData }) => {
             }
             return emp;
         })
-        
-        setUserData({
-            ...userData,
-            employees: updatedEmployees
-        })
 
+        setUserData({ ...userData, employees: updatedEmployees })
         localStorage.setItem("employees", JSON.stringify(updatedEmployees));
-
     }
 
     const currentUser = userData?.employees?.find(
@@ -121,7 +91,7 @@ const TaskList = ({ loggedInUserData }) => {
     if (!currentUser) return null;
 
     return (
-        <div className="flex h-[60%] my-10 py-10 gap-6 overflow-x-auto scroolbar-hidden">
+        <div className="flex items-stretch mt-6 py-4 gap-5 overflow-x-auto [&::-webkit-scrollbar]:h-1 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-white/10 [&::-webkit-scrollbar-thumb]:rounded-full">
             {currentUser.tasks.map((ele, idx) => {
 
                 if (ele.newTask) {
