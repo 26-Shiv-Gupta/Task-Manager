@@ -174,20 +174,8 @@
   "admin": [
     {
       "id": 1,
-      "firstName": "AdminOne",
-      "email": "admin1@example.com",
-      "password": "123"
-    },
-    {
-      "id": 2,
-      "firstName": "AdminTwo",
-      "email": "admin2@example.com",
-      "password": "123"
-    },
-    {
-      "id": 3,
-      "firstName": "AdminThree",
-      "email": "admin3@example.com",
+      "firstName": "Admin",
+      "email": "admin@example.com",
       "password": "123"
     }
   ]
